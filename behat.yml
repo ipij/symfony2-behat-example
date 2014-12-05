@@ -1,0 +1,27 @@
+default:
+    formatters:
+        pretty:
+            verbose:  true
+            paths:    false
+            snippets: false
+    
+    suites:
+        testsuite:
+            contexts:
+                - Behat\MinkExtension\Context\MinkContext
+                - AppBundle\Behat\Context\WebContext
+#        notes_ui:
+#            contexts:
+#                - Behat\MinkExtension\Context\MinkContext
+#                - AppNotes\Bundle\NotesUiBundle\Behat\NotesContext
+    
+    extensions:
+        Behat\MinkExtension:
+            sessions:
+                default:
+                    symfony2: ~
+                javascript:
+                    selenium2: ~
+            browser_name: firefox
+            show_auto:    false
+        Behat\Symfony2Extension: ~
