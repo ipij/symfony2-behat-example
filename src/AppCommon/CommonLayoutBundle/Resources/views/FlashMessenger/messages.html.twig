@@ -1,0 +1,12 @@
+{% if noticesFlashBag|length > 0 %}
+	<div class="message-container">
+{% for flashMessage in noticesFlashBag %}
+    <div class="alert alert-{{ flashMessage.getType() }}">
+{% if flashMessage.isCloseable() == true %}
+		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+{% endif %}
+        {{ flashMessage.getMessage() }}
+    </div>
+{% endfor %}
+	</div><!-- end messages -->
+{% endif %}

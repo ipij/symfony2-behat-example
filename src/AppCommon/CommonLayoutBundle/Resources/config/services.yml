@@ -1,0 +1,22 @@
+services:
+    app_common_common_layout.helper.urlAssembly:
+        class: AppCommon\CommonLayoutBundle\UrlAssemblyHelper
+    
+## Twig extensions
+    app_common_common_layout.twigExtension.container:
+        class: AppCommon\CommonLayoutBundle\Twig\ContainerTwigExtension
+        arguments: [@service_container]
+        tags:
+            - { name: twig.extension }
+    
+    app_common_common_layout.twigExtension.url:
+        class: AppCommon\CommonLayoutBundle\Twig\UrlTwigExtension
+        arguments: [@app_common_common_layout.helper.urlAssembly]
+        tags:
+            - { name: twig.extension }
+    
+    app_common_common_layout.twigExtension.flashMessenger:
+        class: AppCommon\CommonLayoutBundle\FlashMessenger\TwigExtension\FlashMessengerTwigExtension
+        arguments: [@service_container, 'AppCommonCommonLayoutBundle:FlashMessenger:messages.html.twig']
+        tags:
+            - { name: twig.extension }

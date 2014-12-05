@@ -1,0 +1,4 @@
+services:
+    app_common_common_mail.mailBuilder:
+        class: AppCommon\CommonMailBundle\MailBuilder\DefaultMailBuilder
+        arguments: [ @service_container ]
