@@ -80,7 +80,7 @@ class UsersController
     public function getUserAction($userId = 0)
     {
         /* @var $model \App\ModuleObjectsBundle\Model\MapObjectModel */
-        $model = $this->container->get('app_module_objects.model.mapObject');
+        $model = $this->container->get('app_module_user.model.user');
         
         $data = $model->findOneById($userId);
         
