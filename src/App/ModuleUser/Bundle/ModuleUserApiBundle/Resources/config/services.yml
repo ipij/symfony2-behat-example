@@ -1,0 +1,6 @@
+services:
+    app_module_user.controller.api.users:
+        class: App\ModuleUser\Bundle\ModuleUserApiBundle\Controller\UsersController
+        properties:
+            container: "@service_container"
+            viewHandler: "@fos_rest.view_handler"

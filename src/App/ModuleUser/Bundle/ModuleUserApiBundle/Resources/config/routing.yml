@@ -1,0 +1,4 @@
+app_module_user.api.users:
+    type: rest
+    prefix: /api
+    resource: routing_api.yml

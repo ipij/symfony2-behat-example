@@ -22,14 +22,20 @@ class AppKernel extends Kernel
             new AppCommon\CommonModelBundle\AppCommonCommonModelBundle(),
             new AppCommon\CommonMailBundle\AppCommonCommonMailBundle(),
             
+            // security
+            new FOS\UserBundle\FOSUserBundle(),
+            
             // api
             new FOS\RestBundle\FOSRestBundle(),
-            //new JMS\SerializerBundle\JMSSerializerBundle(),
-            //new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle(),
+            new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
             
             new AppBundle\AppBundle(),
             new App\ModuleUser\Bundle\ModuleUserBundle\AppModuleUserModuleUserBundle(),
+            new App\ModuleUser\Bundle\ModuleUserApiBundle\AppModuleUserModuleUserApiBundle(),
             
+            // libs
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
@@ -37,6 +43,8 @@ class AppKernel extends Kernel
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
+            
+            $bundles[] = new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle();
         }
 
         return $bundles;

@@ -1,0 +1,8 @@
+imports:
+    - { resource: model/repositories.yml }
+    - { resource: model/models.yml }
+
+services:
+#    app_module_user_module_user.example:
+#        class: App\ModuleUser\Bundle\ModuleUserBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

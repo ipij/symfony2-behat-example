@@ -1,0 +1,8 @@
+services:
+    app_module_user.model.user:
+        class: App\ModuleUser\Bundle\ModuleUserBundle\Model\UserModel
+        calls:
+            - [setRepository, [@app_module_user.repository.user]]
+
+    app_module_user.model.userRole:
+        class: App\ModuleUser\Bundle\ModuleUserBundle\Model\UserRoleModel

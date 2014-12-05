@@ -71,3 +71,52 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: App\ModuleUser\Bundle\ModuleUserBundle\Entity\UserEntity
+
+knp_paginator:
+    page_range: 5                      # default page range used in pagination control
+    default_options:
+        page_name: page                # page query parameter name
+        sort_field_name: sort          # sort field query parameter name
+        sort_direction_name: sortd # sort direction query parameter name
+        distinct: true                 # ensure distinct results, useful when ORM queries are using GROUP BY statements
+    template:
+        pagination: KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig #KnpPaginatorBundle:Pagination:sliding.html.twig     # sliding pagination controls template
+        sortable: KnpPaginatorBundle:Pagination:sortable_link.html.twig # sort link template
+
+nelmio_api_doc: ~
+
+jms_serializer:
+    metadata:
+        file_cache:
+            dir: "%kernel.cache_dir%/serializer"
+        auto_detection: true
+
+fos_rest:
+    routing_loader:
+        default_format: json
+    view:
+        view_response_listener: true
+        formats:
+            json: true
+            xml: true
+            rss: false
+        templating_formats:
+            html: false
+    body_listener: true
+    param_fetcher_listener: force
+    allowed_methods_listener: true
+
+jms_serializer:
+    metadata:
+        file_cache:
+            dir: "%kernel.cache_dir%/serializer"
+        auto_detection: true
+
+sensio_framework_extra:
+    view:
+        annotations: false

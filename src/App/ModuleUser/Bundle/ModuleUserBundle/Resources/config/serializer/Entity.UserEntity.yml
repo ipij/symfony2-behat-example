@@ -1,0 +1,15 @@
+App\ModuleUser\Bundle\ModuleUserBundle\Entity\UserEntity:
+    exclusion_policy: ALL
+    properties:
+        id:
+            expose: true
+            groups: ["user.list", "user.get"]
+        username:
+            expose: true
+            groups: ["user.list", "user.get"]
+        enabled:
+            expose: true
+            groups: ["user.get"]
+        locked:
+            expose: true
+            groups: ["user.get"]

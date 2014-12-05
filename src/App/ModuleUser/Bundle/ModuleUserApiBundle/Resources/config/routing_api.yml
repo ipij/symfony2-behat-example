@@ -1,0 +1,4 @@
+app_module_user.api.users:
+    type: rest
+    resource: app_module_user.controller.api.users
+    name_prefix:  app_module_users.api.
