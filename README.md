@@ -15,13 +15,13 @@ Scenarios are placed under `/features/` directory. Each feature is describd by `
 To run *all* Behat scenarios, just run from application directory:
 
 ```
-bin/behat
+$ bin/behat
 ```
 
 To run Behat scenarios from given tag, just run:
 
 ```
-bin/behat --tags tag_name
+$ bin/behat --tags tag_name
 ```
 
 where _tag_name_ is your `@tag_name` tagged features.
