@@ -62,7 +62,7 @@ doctrine:
 
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
-        auto_mapping: true
+#        auto_mapping: true
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -95,6 +95,10 @@ jms_serializer:
         file_cache:
             dir: "%kernel.cache_dir%/serializer"
         auto_detection: true
+        #directories:
+        #    FOSUB:
+        #        namespace_prefix: "FOS\\UserBundle"
+        #        path: "%kernel.root_dir%/Resources/FOSUserBundle/serializer"
 
 fos_rest:
     routing_loader:

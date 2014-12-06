@@ -25,6 +25,7 @@
         "jms/serializer-bundle": "dev-master",
         "nelmio/api-doc-bundle": "@stable",
         
+        "sylius/resource-bundle": "v0.11.0",
         "knplabs/knp-paginator-bundle": "~2.4"
     },
     "require-dev": {

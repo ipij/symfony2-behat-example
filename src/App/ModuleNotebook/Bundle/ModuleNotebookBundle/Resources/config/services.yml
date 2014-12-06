@@ -1,0 +1,9 @@
+parameters:
+     app_module_notebook.driver: doctrine/orm
+     app_module_notebook.model.noteTag.class: App\ModuleNotebook\Component\Notebook\Model\NoteTag
+     app_module_notebook.model.note.class: App\ModuleNotebook\Component\Notebook\Model\Note
+
+services:
+#    app_module_notebook_module_notebook.example:
+#        class: App\ModuleNotebook\Bundle\ModuleNotebookBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,0 +1,3 @@
+app_module_notebook_module_notebook_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: AppModuleNotebookModuleNotebookBundle:Default:index }
