@@ -34,6 +34,8 @@ class AppKernel extends Kernel
             new App\ModuleUser\Bundle\ModuleUserBundle\AppModuleUserModuleUserBundle(),
             new App\ModuleUser\Bundle\ModuleUserApiBundle\AppModuleUserModuleUserApiBundle(),
             
+            new App\ModuleNotebook\Bundle\ModuleNotebookBundle\AppModuleNotebookModuleNotebookBundle(),
+            
             // libs
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
         );

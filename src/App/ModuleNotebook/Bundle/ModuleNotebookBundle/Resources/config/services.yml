@@ -1,0 +1,4 @@
+services:
+#    app_module_notebook_module_notebook.example:
+#        class: App\ModuleNotebook\Bundle\ModuleNotebookBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
