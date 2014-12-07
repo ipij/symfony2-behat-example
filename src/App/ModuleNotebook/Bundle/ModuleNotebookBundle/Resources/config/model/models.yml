@@ -1,0 +1,15 @@
+services:
+    app_module_notebook.model.notebook:
+        class: App\ModuleNotebook\Bundle\ModuleNotebookBundle\Model\NotebookModel
+        calls:
+            - [setRepository, [@app_module_notebook.repository.notebook]]
+    
+    app_module_notebook.model.note:
+        class: App\ModuleNotebook\Bundle\ModuleNotebookBundle\Model\NoteModel
+        calls:
+            - [setRepository, [@app_module_notebook.repository.note]]
+
+    app_module_notebook.model.noteTag:
+        class: App\ModuleNotebook\Bundle\ModuleNotebookBundle\Model\NoteTagModel
+        calls:
+            - [setRepository, [@app_module_notebook.repository.noteTag]]

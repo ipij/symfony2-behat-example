@@ -1,3 +1,7 @@
+imports:
+    - { resource: model/repositories.yml }
+    - { resource: model/models.yml }
+
 services:
 #    app_module_notebook_module_notebook.example:
 #        class: App\ModuleNotebook\Bundle\ModuleNotebookBundle\Example

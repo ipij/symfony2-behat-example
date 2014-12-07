@@ -57,6 +57,7 @@ class LoadUsersSampleData extends AbstractFixture implements
             ]);
             $model->save($entity);
         }
+        $this->setReference(sprintf('user:%s', $entity->getUsername()), $entity);
         
         $entity = $model->findOneByUsername("Greg");
         if (null === $entity) {
@@ -70,6 +71,7 @@ class LoadUsersSampleData extends AbstractFixture implements
             ]);
             $model->save($entity);
         }
+        $this->setReference(sprintf('user:%s', $entity->getUsername()), $entity);
         
         $entity = $model->findOneByUsername("Katie");
         if (null === $entity) {
@@ -83,5 +85,6 @@ class LoadUsersSampleData extends AbstractFixture implements
             ]);
             $model->save($entity);
         }
+        $this->setReference(sprintf('user:%s', $entity->getUsername()), $entity);
     }
 }

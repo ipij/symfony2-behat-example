@@ -2,6 +2,7 @@
 
 namespace App\ModuleNotebook\Bundle\ModuleNotebookBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 /**
  * Note model.
  *
@@ -55,6 +56,11 @@ class Note
      * @var Collection|NoteTag
      */
     protected $tags;
+    
+    public function __construct() {
+        $this->creationDate = new \DateTime();
+        $this->tags = new ArrayCollection();
+    }
     
     /**
      * @return the $notebook
