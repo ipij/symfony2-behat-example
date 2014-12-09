@@ -1,0 +1,5 @@
+services:
+    app_module_notebook.ui.form.type.notebook:
+        class: App\ModuleNotebook\Bundle\ModuleNotebookUiBundle\Form\Type\NotebookFormType
+        tags:
+            - { name: form.type, alias: notebook }

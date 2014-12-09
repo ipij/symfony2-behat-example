@@ -1,3 +1,6 @@
+imports:
+    - { resource: forms.yml }
+
 services:
 #    app_module_notebook_module_notebook_ui.example:
 #        class: App\ModuleNotebook\Bundle\ModuleNotebookUiBundle\Example

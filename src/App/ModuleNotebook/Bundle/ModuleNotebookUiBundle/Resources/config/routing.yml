@@ -3,8 +3,8 @@ app_module_notebook.ui.notebook.list:
     defaults: { _controller: AppModuleNotebookModuleNotebookUiBundle:Notebook:index }
 
 app_module_notebook.ui.notebook.view:
-    path:     /{slug}
-    defaults: { _controller: AppModuleNotebookModuleNotebookUiBundle:Notebook:update }
+    path:     /{slug}/view
+    defaults: { _controller: AppModuleNotebookModuleNotebookUiBundle:Notebook:view }
 
 app_module_notebook.ui.notebook.create:
     path:     /create

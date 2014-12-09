@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use AppCommon\CommonLayoutBundle\FlashMessenger\MessageFactory;
+use App\ModuleNotebook\Bundle\ModuleNotebookBundle\Entity\Notebook;
 
 class NotebookController extends Controller
 {
@@ -50,13 +51,102 @@ class NotebookController extends Controller
      * @Security("has_role('ROLE_USER')")
      *
      * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function createAction(Request $request)
+    {
+        if(! $this->get('security.context')->isGranted('notebook.create')) {
+            throw $this->createAccessDeniedException();
+        }
+    
+        $view = [];
+
+        $model = $this->getModelNotebook();
+        
+        $entity = new Notebook();
+        
+        $form = $this->createForm('notebook', $entity);
+        $form->handleRequest($request);
+        
+        if($form->isValid()) {
+            
+            $entity->setOwner($this->getUser());
+            
+            $model->save($entity);
+            
+            $this->get('session')->getFlashBag()->add(
+                'notice',
+                MessageFactory::createMessage('The notebook has added successfully.')
+            );
+            
+            return $this->redirect($this->generateUrl('app_module_notebook.ui.notebook.view', [
+                'slug' => $entity->getSlug(),
+            ]));
+        }
+        
+        $view['item'] = $entity;
+        $view['form'] = $form->createView();
+        
+        return $this->render('AppModuleNotebookModuleNotebookUiBundle:Notebook:create.html.twig', $view);
+    }
+
+    /**
+     * @Security("has_role('ROLE_USER')")
+     *
+     * @param Request $request
+     * @param string $slug
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function updateAction(Request $request, $slug)
+    {
+        $model = $this->getModelNotebook();
+        
+        $entity = $model->getBySlugAndUser($slug, $this->getUser()->getId());
+        
+        if(null === $entity) {
+            throw $this->createNotFoundException();
+        }
+        
+        if(! $this->get('security.context')->isGranted('notebook.update', $entity)) {
+            throw $this->createAccessDeniedException();
+        }
+
+        $view = [];
+        
+        $form = $this->createForm('notebook', $entity);
+        $form->handleRequest($request);
+    
+        if($form->isValid()) {
+    
+            $entity->setOwner($this->getUser());
+    
+            $model->save($entity);
+    
+            $this->get('session')->getFlashBag()->add(
+                'notice',
+                MessageFactory::createMessage('The notebook has added successfully.')
+            );
+    
+            return $this->redirect($this->generateUrl('app_module_notebook.ui.notebook.view', [
+                'slug' => $entity->getSlug(),
+            ]));
+        }
+    
+        $view['item'] = $entity;
+        $view['form'] = $form->createView();
+    
+        return $this->render('AppModuleNotebookModuleNotebookUiBundle:Notebook:create.html.twig', $view);
+    }
+    
+    /**
+     * @Security("has_role('ROLE_USER')")
+     *
+     * @param Request $request
      * @param string $slug
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function deleteAction(Request $request, $slug)
     {
-        $view = [];
-        
         $model = $this->getModelNotebook();
         
         $entity = $model->getBySlugAndUser($slug, $this->getUser()->getId());
@@ -68,6 +158,8 @@ class NotebookController extends Controller
         if(! $this->get('security.context')->isGranted('notebook.delete', $entity)) {
             throw $this->createAccessDeniedException();
         }
+        
+        $view = [];
         
         $form = $this->createForm('commonDeleteConfirmation');
         $form->handleRequest($request);
