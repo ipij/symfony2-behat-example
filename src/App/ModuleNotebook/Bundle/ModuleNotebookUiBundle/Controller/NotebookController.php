@@ -18,6 +18,10 @@ class NotebookController extends Controller
      */
     public function indexAction(Request $request)
     {
+        if(! $this->get('security.context')->isGranted('notebook.list')) {
+            throw $this->createAccessDeniedException();
+        }
+        
         $view = [];
         
         $params = [];
@@ -59,6 +63,10 @@ class NotebookController extends Controller
         
         if(null === $entity) {
             throw $this->createNotFoundException();
+        }
+        
+        if(! $this->get('security.context')->isGranted('notebook.delete', $entity)) {
+            throw $this->createAccessDeniedException();
         }
         
         $form = $this->createForm('commonDeleteConfirmation');

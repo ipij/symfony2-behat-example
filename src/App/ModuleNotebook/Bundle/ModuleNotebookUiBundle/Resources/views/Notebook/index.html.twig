@@ -3,7 +3,9 @@
 {% block content %}
 
 <div class="tableActions">
-	<a href="" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Create notebook</a>
+{% if is_granted('notebook.create') %}
+	<a href="{{ url('app_module_notebook.ui.notebook.create') }}" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Create notebook</a>
+{% endif %}
 </div>
 
 <table class="table">
@@ -17,21 +19,34 @@
 {% for item in items %}
 		<tr>
 			<td>
-				<a href="">
+{% if is_granted('notebook.view', item) %}
+				<a href="{{ url('app_module_notebook.ui.notebook.view', { slug: item.slug }) }}">
 				{{ item.name }}
 				</a>
+{% else %}
+				{{ item.name }}
+{% endif %}
 			</td>
 			<td>
-				<a href=""><span class="glyphicon glyphicon-list-alt"></span></a>
-				<a href=""><span class="glyphicon glyphicon-pencil"></span></a>
-				
+{% if is_granted('notebook.view', item) %}
+				<a href="{{ url('app_module_notebook.ui.notebook.view', { slug: item.slug }) }}"><span class="glyphicon glyphicon-list-alt"></span></a>
+{% endif %}
+{% if is_granted('notebook.update', item) %}
+				<a href="{{ url('app_module_notebook.ui.notebook.update', { slug: item.slug }) }}"><span class="glyphicon glyphicon-pencil"></span></a>
+{% endif %}
+{% if is_granted('notebook.delete', item) %}
 				<a href="{{ url('app_module_notebook.ui.notebook.delete', { slug: item.slug }) }}"><span class="glyphicon glyphicon-trash"></span></a>
+{% endif %}
 			</td>
 		</tr>
 {% else %}
 		<tr>
 			<td colspan="2">
-				There is no notebooks. <a href="" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Create first one!</a>
+				There is no notebooks.
+				
+{% if is_granted('notebook.create') %}
+				<a href="{{ url('app_module_notebook.ui.notebook.create') }}" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Create first one!</a>
+{% endif %}
 			</td>
 		</tr>
 {% endfor %}

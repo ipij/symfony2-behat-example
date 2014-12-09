@@ -1,0 +1,6 @@
+services:
+    app_module_notebook.security.voter.notebook:
+        class: App\ModuleNotebook\Bundle\ModuleNotebookBundle\Security\Voter\NotebookSecurityVoter
+        public: false
+        tags:
+           - { name: security.voter }

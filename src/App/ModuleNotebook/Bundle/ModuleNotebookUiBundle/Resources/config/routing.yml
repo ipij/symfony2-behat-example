@@ -2,6 +2,10 @@ app_module_notebook.ui.notebook.list:
     path:     /
     defaults: { _controller: AppModuleNotebookModuleNotebookUiBundle:Notebook:index }
 
+app_module_notebook.ui.notebook.view:
+    path:     /{slug}
+    defaults: { _controller: AppModuleNotebookModuleNotebookUiBundle:Notebook:update }
+
 app_module_notebook.ui.notebook.create:
     path:     /create
     defaults: { _controller: AppModuleNotebookModuleNotebookUiBundle:Notebook:create }
