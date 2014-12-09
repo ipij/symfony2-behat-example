@@ -3,24 +3,35 @@
 {% block content %}
 
 <div class="tableActions">
-	<a href="" class="btn btn-success">Create notebook</a>
+	<a href="" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Create notebook</a>
 </div>
 
 <table class="table">
 	<thead>
 		<tr>
 			<th>{{ knp_pagination_sortable(itemsPagination, 'Notebook', 'item.name') }}</th>
+			<th>Actions</th>
 		</th>
 	</thead>
 	<tbody>
 {% for item in items %}
 		<tr>
-			<td>{{ item.name }}</td>
+			<td>
+				<a href="">
+				{{ item.name }}
+				</a>
+			</td>
+			<td>
+				<a href=""><span class="glyphicon glyphicon-list-alt"></span></a>
+				<a href=""><span class="glyphicon glyphicon-pencil"></span></a>
+				
+				<a href="{{ url('app_module_notebook.ui.notebook.delete', { slug: item.slug }) }}"><span class="glyphicon glyphicon-trash"></span></a>
+			</td>
 		</tr>
 {% else %}
 		<tr>
-			<td colspan="1">
-				There is no notebooks. <a href="" class="btn btn-success">Create first one!</a>
+			<td colspan="2">
+				There is no notebooks. <a href="" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Create first one!</a>
 			</td>
 		</tr>
 {% endfor %}

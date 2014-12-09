@@ -1,3 +1,15 @@
 app_module_notebook.ui.notebook.list:
     path:     /
     defaults: { _controller: AppModuleNotebookModuleNotebookUiBundle:Notebook:index }
+
+app_module_notebook.ui.notebook.create:
+    path:     /create
+    defaults: { _controller: AppModuleNotebookModuleNotebookUiBundle:Notebook:create }
+
+app_module_notebook.ui.notebook.update:
+    path:     /{slug}/edit
+    defaults: { _controller: AppModuleNotebookModuleNotebookUiBundle:Notebook:update }
+
+app_module_notebook.ui.notebook.delete:
+    path:     /{slug}/delete
+    defaults: { _controller: AppModuleNotebookModuleNotebookUiBundle:Notebook:delete }

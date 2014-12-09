@@ -11,7 +11,7 @@
         </id>
         
         <many-to-one field="notebook" target-entity="App\ModuleNotebook\Bundle\ModuleNotebookBundle\Entity\Notebook">
-            <join-column name="notebook_id" referenced-column-name="id" />
+            <join-column name="notebook_id" referenced-column-name="id" on-delete="CASCADE" on-update="RESTRICT" />
         </many-to-one>
         
         <field name="subject" column="subject" type="string" />
@@ -23,10 +23,10 @@
         <many-to-many field="tags" target-entity="App\ModuleNotebook\Bundle\ModuleNotebookBundle\Entity\NoteTag">
         	<join-table name="note_tag_handler">
                 <join-columns>
-                    <join-column name="note_id" referenced-column-name="id" />
+                    <join-column name="note_id" referenced-column-name="id" on-delete="CASCADE" on-update="RESTRICT" />
                 </join-columns>
                 <inverse-join-columns>
-                    <join-column name="tag_id" referenced-column-name="id" />
+                    <join-column name="tag_id" referenced-column-name="id" on-delete="CASCADE" on-update="RESTRICT" />
                 </inverse-join-columns>
             </join-table>
             <cascade>

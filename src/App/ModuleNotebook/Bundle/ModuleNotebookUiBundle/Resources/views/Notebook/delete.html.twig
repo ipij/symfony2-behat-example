@@ -1,0 +1,19 @@
+{% extends "AppCommonLayoutBundle:LayoutDefault:index.html.twig" %}
+
+{% block content %}
+
+{{ form_start(form, { attr: { novalidate: 'novalidate' } }) }}
+
+	<p>
+		Do you want really remove notebook <strong>{{ item.name }}</strong>?
+	</p>
+
+    <div class="row">
+      {{ form_widget(form.confirm, { label: 'Remove', attr: { class: 'btn btn-primary' } }) }}
+      {{ form_widget(form.cancel, { label: 'Cancel', attr: { class: 'btn' } }) }}
+    </div>
+    
+    {{ form_rest(form) }}
+{{ form_end(form) }}
+
+{% endblock %}

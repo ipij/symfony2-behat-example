@@ -16,7 +16,7 @@
         </field>
         
         <many-to-one field="owner" target-entity="App\ModuleUser\Bundle\ModuleUserBundle\Entity\UserEntity">
-            <join-column name="owner_id" referenced-column-name="id" />
+            <join-column name="owner_id" referenced-column-name="id" on-delete="CASCADE" on-update="RESTRICT" />
         </many-to-one>
     </entity>
 
