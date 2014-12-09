@@ -20,6 +20,10 @@ class NoteModel extends BaseDoctrineEntityModel
                 ->notIn('item.id', $params['excludeIds']));
         }
         
+        if (isset($params['returnQuery']) && $params['returnQuery']) {
+            return $q->getQuery();
+        }
+        
         if (isset($params['returnQueryBuilder']) && $params['returnQueryBuilder']) {
             return $q;
         }

@@ -1,0 +1,3 @@
+app_module_notebook.ui.notebook.list:
+    path:     /
+    defaults: { _controller: AppModuleNotebookModuleNotebookUiBundle:Notebook:index }

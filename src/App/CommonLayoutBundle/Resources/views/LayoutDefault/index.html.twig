@@ -1,0 +1,83 @@
+{% if pageIds is not defined %}
+{% set pageIds = [] %}
+{% endif %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MagurskaKraina</title>
+
+    <!-- Bootstrap -->
+{% block block_css %}
+ <link href='http://fonts.googleapis.com/css?family=Cuprum:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+	{% stylesheets
+    'bundles/appcommonlayout/lib/bootstrap-3.3.1-dist/dist/css/bootstrap.min.css'
+    'bundles/appcommonlayout/css/bootstrap-override.css'
+    'bundles/appcommonlayout/css/style.css'
+    
+	filter='cssrewrite' %}
+	    <link rel="stylesheet" href="{{ asset_url }}" />
+	{% endstylesheets %}
+
+{% endblock %}
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    {% javascripts
+	    'https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js'
+	    'https://oss.maxcdn.com/respond/1.4.2/respond.min.js'
+	    %}
+	    <script src="{{ asset_url }}"></script>
+	{% endjavascripts %}
+    <![endif]-->
+
+{% block block_javascript_top %}
+	{% javascripts
+      '@AppCommonLayoutBundle/Resources/public/lib/jquery/1.11.1/jquery-1.11.1.min.js'
+	    %}
+	    <script src="{{ asset_url }}"></script>
+	{% endjavascripts %}
+{% endblock %}
+  </head>
+  
+  <body>
+
+<div class="container-fluid2">
+  <div class="row">
+    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12 column__left padding__reset">
+		menu.
+    </div>
+    <div class="page-wrapper  col-lg-10 col-md-10 col-sm-9 col-xs-12">
+    
+      {{ flash_messenger(app.session.flashbag.get('notice'))|raw }}
+      
+      <div class="content__main">
+        
+        {% if pageTitle is defined %}
+          <h2 class="content__main__header">{{ pageTitle }}</h2>
+        {% endif %}
+        
+        {% block content %}
+        {% endblock %}
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% block block_javascript %}
+	{% javascripts
+      '@AppCommonLayoutBundle/Resources/public/lib/bootstrap-3.3.1-dist/dist/js/bootstrap.min.js'
+      
+      '@AppCommonLayoutBundle/Resources/public/js/common.js'
+	    %}
+	    <script src="{{ asset_url }}"></script>
+	{% endjavascripts %}
+{% endblock %}
+  </body>
+</html>

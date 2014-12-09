@@ -21,7 +21,7 @@ class AppKernel extends Kernel
             new AppCommon\CommonLayoutBundle\AppCommonCommonLayoutBundle(),
             new AppCommon\CommonModelBundle\AppCommonCommonModelBundle(),
             new AppCommon\CommonMailBundle\AppCommonCommonMailBundle(),
-            
+
             // security
             new FOS\UserBundle\FOSUserBundle(),
             
@@ -31,13 +31,17 @@ class AppKernel extends Kernel
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
             
             new AppBundle\AppBundle(),
+            
             new App\ModuleUser\Bundle\ModuleUserBundle\AppModuleUserModuleUserBundle(),
             new App\ModuleUser\Bundle\ModuleUserApiBundle\AppModuleUserModuleUserApiBundle(),
             
             new App\ModuleNotebook\Bundle\ModuleNotebookBundle\AppModuleNotebookModuleNotebookBundle(),
+            new App\ModuleNotebook\Bundle\ModuleNotebookUiBundle\AppModuleNotebookModuleNotebookUiBundle(),
+            new App\ModuleNotebook\Bundle\ModuleNotebookApiBundle\AppModuleNotebookModuleNotebookApiBundle(),
             
             // libs
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new App\CommonLayoutBundle\AppCommonLayoutBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -7,46 +7,46 @@ services:
 #        arguments: [@service_id, "plain_value", %parameter%]
 
     # Doctrine Extension listeners to handle behaviors
-#    gedmo.listener.tree:
-#        class: Gedmo\Tree\TreeListener
-#        tags:
-#            - { name: doctrine.event_subscriber, connection: default }
-#        calls:
-#            - [ setAnnotationReader, [ @annotation_reader ] ]
+    gedmo.listener.tree:
+        class: Gedmo\Tree\TreeListener
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+        calls:
+            - [ setAnnotationReader, [ @annotation_reader ] ]
 
-#    gedmo.listener.translatable:
-#        class: Gedmo\Translatable\TranslatableListener
-#        tags:
-#            - { name: doctrine.event_subscriber, connection: default }
-#        calls:
-#            - [ setAnnotationReader, [ @annotation_reader ] ]
-#            - [ setDefaultLocale, [ %locale% ] ]
-#            - [ setTranslationFallback, [ false ] ]
+    gedmo.listener.translatable:
+        class: Gedmo\Translatable\TranslatableListener
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+        calls:
+            - [ setAnnotationReader, [ @annotation_reader ] ]
+            - [ setDefaultLocale, [ %locale% ] ]
+            - [ setTranslationFallback, [ false ] ]
 
-#    gedmo.listener.timestampable:
-#        class: Gedmo\Timestampable\TimestampableListener
-#        tags:
-#            - { name: doctrine.event_subscriber, connection: default }
-#        calls:
-#            - [ setAnnotationReader, [ @annotation_reader ] ]
+    gedmo.listener.timestampable:
+        class: Gedmo\Timestampable\TimestampableListener
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+        calls:
+            - [ setAnnotationReader, [ @annotation_reader ] ]
 
-#    gedmo.listener.sluggable:
-#        class: Gedmo\Sluggable\SluggableListener
-#        tags:
-#            - { name: doctrine.event_subscriber, connection: default }
-#        calls:
-#            - [ setAnnotationReader, [ @annotation_reader ] ]
+    gedmo.listener.sluggable:
+        class: Gedmo\Sluggable\SluggableListener
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+        calls:
+            - [ setAnnotationReader, [ @annotation_reader ] ]
 
-#    gedmo.listener.sortable:
-#        class: Gedmo\Sortable\SortableListener
-#        tags:
-#            - { name: doctrine.event_subscriber, connection: default }
-#        calls:
-#            - [ setAnnotationReader, [ @annotation_reader ] ]
+    gedmo.listener.sortable:
+        class: Gedmo\Sortable\SortableListener
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+        calls:
+            - [ setAnnotationReader, [ @annotation_reader ] ]
 
-#    gedmo.listener.loggable:
-#        class: Gedmo\Loggable\LoggableListener
-#        tags:
-#            - { name: doctrine.event_subscriber, connection: default }
-#        calls:
-#            - [ setAnnotationReader, [ @annotation_reader ] ]
+    gedmo.listener.loggable:
+        class: Gedmo\Loggable\LoggableListener
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+        calls:
+            - [ setAnnotationReader, [ @annotation_reader ] ]

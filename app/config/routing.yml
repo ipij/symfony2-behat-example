@@ -6,6 +6,17 @@ app_module_user.api.users:
     resource: "@AppModuleUserModuleUserApiBundle/Resources/config/routing.yml"
     prefix:   /
 
+app_module_notebook.api:
+    resource: "@AppModuleNotebookModuleNotebookApiBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app_module_notebook.ui:
+    resource: "@AppModuleNotebookModuleNotebookUiBundle/Resources/config/routing.yml"
+    prefix:   /notebooks
+
 NelmioApiDocBundle:
     resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
     prefix:   /api/doc
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
