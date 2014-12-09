@@ -5,6 +5,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 class NotebookFormType extends AbstractType
 {
 
@@ -13,6 +15,9 @@ class NotebookFormType extends AbstractType
         $builder->add('name', 'text', [
             'label' => 'Notebook name',
             'required' => true,
+            'constraints' => [
+                new Assert\NotBlank(),
+            ],
         ]);
         
         $builder->add('submit', 'submit', [

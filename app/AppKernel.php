@@ -42,6 +42,7 @@ class AppKernel extends Kernel
             // libs
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new App\CommonLayoutBundle\AppCommonLayoutBundle(),
+            new Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
