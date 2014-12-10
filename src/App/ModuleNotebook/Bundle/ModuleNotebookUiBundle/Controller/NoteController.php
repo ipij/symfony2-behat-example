@@ -183,9 +183,6 @@ class NoteController extends Controller
         $form->handleRequest($request);
     
         if($form->isValid()) {
-    
-            $entity->setOwner($this->getUser());
-    
             $model->save($entity);
     
             $this->get('session')->getFlashBag()->add(

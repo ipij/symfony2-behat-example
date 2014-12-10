@@ -15,6 +15,9 @@
 	{% stylesheets
     'bundles/appcommonlayout/lib/bootstrap-3.3.1-dist/dist/css/bootstrap.min.css'
     'bundles/appcommonlayout/css/bootstrap-override.css'
+    
+    'bundles/appcommonlayout/lib/eternicode-bootstrap-datepicker/1.3.0/css/datepicker3.css'
+    
     'bundles/appcommonlayout/css/style.css'
     
 	filter='cssrewrite' %}
@@ -98,6 +101,7 @@
 {% block block_javascript %}
 	{% javascripts
       '@AppCommonLayoutBundle/Resources/public/lib/bootstrap-3.3.1-dist/dist/js/bootstrap.min.js'
+      '@AppCommonLayoutBundle/Resources/public/lib/eternicode-bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js'
       
       '@AppCommonLayoutBundle/Resources/public/js/common.js'
 	    %}

@@ -29,7 +29,7 @@ class NoteFormType extends AbstractType
         $builder->add('dueDate', 'datetime', [
             'label' => 'Due date',
             'widget' => 'single_text',
-            'format' => 'yyyy-MM-dd HH:mm:ss',
+            'format' => 'yyyy-MM-dd',
             'constraints' => [
             ],
         ]);

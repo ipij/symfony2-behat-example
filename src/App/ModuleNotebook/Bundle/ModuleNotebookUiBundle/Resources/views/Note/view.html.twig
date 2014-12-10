@@ -36,7 +36,7 @@
 			Due time:
 		</td>
 		<td class="col-sm-9">
-{% if item.completeDate is not null %}
+{% if item.dueDate is not null %}
 			{{ item.dueDate | date('Y-m-d H:i:s') }}
 {% else %}
 			No due time
