@@ -45,10 +45,44 @@
   </head>
   
   <body>
+  
+  <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+          <a class="navbar-brand" href="{{ url('app_module_notebook.ui.notebook.list') }}">Notes App</a>
+          {% else %}
+          <a class="navbar-brand" href="{{ url('homepage') }}">Notes App</a>
+          {% endif %}
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="{{ url('app_module_notebook.ui.notebook.list') }}">Notebooks</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <li><a href="#">{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}</a></li>
+                <li><a href="{{ path('fos_user_security_logout') }}">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>
+            {% else %}
+                <li><a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a></li>
+            {% endif %}
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
 
-      {{ flash_messenger(app.session.flashbag.get('notice'))|raw }}
+    <div class="container">
+	
+    	{{ flash_messenger(app.session.flashbag.get('notice'))|raw }}
       
-      <div class="content__main">
+    	<div class="content__main">
         
         {% if pageTitle is defined %}
           <h2 class="content__main__header">{{ pageTitle }}</h2>
@@ -57,7 +91,8 @@
         {% block content %}
         {% endblock %}
 
-      </div>
+    	</div>
+    </div>
 
 
 {% block block_javascript %}

@@ -1,4 +1,4 @@
-@dashboard
+@homepage
 Feature: Homepage
     In order to make me sure that Behat is configured properly with Symfony2
     As a anonymous user
@@ -6,4 +6,4 @@ Feature: Homepage
 
     Scenario:
         Given I go to the website root
-         Then I should see "Homepage"
+         Then I should see "Notes app"

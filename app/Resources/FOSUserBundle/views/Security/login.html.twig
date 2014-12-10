@@ -1,0 +1,50 @@
+{% extends "AppCommonLayoutBundle:LayoutDefault:index.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block content %}
+
+<form action="{{ path("fos_user_security_check") }}" method="post" class="form-signin">
+	<div class="inner">
+	<h1>{{ 'security.login.submit'|trans }}</h1>
+	
+	{% if error %}
+		<div class="alert alert-danger" role="alert">
+		  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+		  <span class="sr-only">Error:</span>
+		  {{ error.messageKey|trans(error.messageData, 'security') }}
+		</div>
+	{% endif %}
+	
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+
+	<label for="username" class="sr-only">{{ 'security.login.username'|trans }}</label>
+	<input type="text" id="username" name="_username" value="{{ last_username }}" placeholder="{{ 'security.login.username'|trans }}" required="required" class=" form-control" />
+	
+    <label for="password" class="sr-only">{{ 'security.login.password'|trans }}</label>
+    <input type="password" id="password" name="_password" required="required" placeholder="{{ 'security.login.password'|trans }}" class=" form-control" />
+	
+	<div class="checkbox">
+		<label for="remember_me">
+		    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+		    {{ 'security.login.remember_me'|trans }}
+	    </label>
+	</div>
+	
+    <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" class="btn btn-lg btn-primary btn-block" />
+    
+    <p>
+    <ul>
+    	<li><a href="{{ url('fos_user_registration_register') }}">{{ 'registration.submit'|trans }}</a></li>
+    	<li><a href="{{ url('fos_user_resetting_request') }}">{{ 'resetting.request.submit'|trans }}</a></li>
+    </ul>
+    </p>
+    </div>
+</form>
+
+<script>
+$(function() {
+	$('.form-signin').css('height', $('.form-signin > .inner').outerHeight())
+})
+</script>
+{% endblock content %}

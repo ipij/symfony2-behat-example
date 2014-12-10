@@ -10,6 +10,10 @@ default:
             contexts:
                 - Behat\MinkExtension\Context\MinkContext
                 - AppBundle\Behat\Context\WebContext
+        authorization.login:
+            contexts:
+                - Behat\MinkExtension\Context\MinkContext
+                - AppBundle\Behat\Context\WebContext
 #        notes_ui:
 #            contexts:
 #                - Behat\MinkExtension\Context\MinkContext

@@ -26,7 +26,10 @@
         "nelmio/api-doc-bundle": "@stable",
         
         "knplabs/knp-paginator-bundle": "~2.4",
-        "gedmo/doctrine-extensions": "dev-master"
+        "gedmo/doctrine-extensions": "dev-master",
+        
+        "mopa/bootstrap-bundle": "v3.0.0-beta4",
+        "twbs/bootstrap": "v3.2.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",
