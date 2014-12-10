@@ -20,3 +20,7 @@ NelmioApiDocBundle:
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+homepage:
+    path: /
+    defaults: { _controller: AppModuleNotebookModuleNotebookUiBundle:Homepage:index }

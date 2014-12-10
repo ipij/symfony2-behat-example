@@ -5,4 +5,11 @@ $(function() {
 		viewMode: 'days',
 		minViewMode: 'days'
 	})
+	
+	$('time.fromnow').each(function(i, elem) {
+		var o = $(elem)
+		var text = moment(o.attr('datetime')).fromNow()
+		
+		o.text(text)
+	})
 })

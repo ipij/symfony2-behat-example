@@ -16,7 +16,7 @@
 			Created at:
 		</td>
 		<td class="col-sm-9">
-			{{ item.creationDate | date('Y-m-d H:i:s') }}
+			<time datetime="{{ item.creationDate | date('Y-m-d H:i:s') }}" class="fromnow">{{ item.creationDate | date('Y-m-d H:i:s') }}</time>
 		</td>
 	</tr>
 	<tr>
@@ -25,7 +25,7 @@
 		</td>
 		<td class="col-sm-9">
 {% if item.completeDate is not null %}
-			{{ item.completeDate | date('Y-m-d H:i:s') }}
+			<time datetime="{{ item.completeDate | date('Y-m-d H:i:s') }}" class="fromnow">{{ item.completeDate | date('Y-m-d H:i:s') }}</time>
 {% else %}
 			Not completed yet
 {% endif %}
@@ -37,7 +37,7 @@
 		</td>
 		<td class="col-sm-9">
 {% if item.dueDate is not null %}
-			{{ item.dueDate | date('Y-m-d H:i:s') }}
+			<time datetime="{{ item.dueDate | date('Y-m-d H:i:s') }}" class="fromnow">{{ item.dueDate | date('Y-m-d H:i:s') }}</time>
 {% else %}
 			No due time
 {% endif %}
