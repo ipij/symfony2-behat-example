@@ -11,5 +11,6 @@ $(function() {
 		var text = moment(o.attr('datetime')).fromNow()
 		
 		o.text(text)
+		o.attr('title', o.attr('datetime'))
 	})
 })

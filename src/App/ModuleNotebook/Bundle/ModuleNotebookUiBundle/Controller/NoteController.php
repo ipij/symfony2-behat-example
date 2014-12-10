@@ -47,8 +47,12 @@ class NoteController extends Controller
         
         /* @var $paginator \Knp\Component\Pager\PaginatorInterface */
         $paginator = $this->container->get('knp_paginator');
+        
         /* @var $pagination \Knp\Component\Pager\Pagination\AbstractPagination */
-        $pagination = $paginator->paginate($model->getList($paramsListing), $page, $pageLimit);
+        $pagination = $paginator->paginate($model->getList($paramsListing), $page, $pageLimit, [
+            'defaultSortFieldName' => 'item.dueDate',
+            'defaultSortDirection' => 'asc',
+        ]);
         
         $view['itemsPagination'] = $pagination;
         $view['items'] = $pagination->getItems();
@@ -257,6 +261,60 @@ class NoteController extends Controller
         
         return $this->render('AppModuleNotebookModuleNotebookUiBundle:Note:delete.html.twig', $view);
     }
+    
+
+    /**
+     * @Security("has_role('ROLE_USER')")
+     *
+     * @param Request $request
+     * @param string $notebookSlug
+     * @param int $id
+     * @param boolean $completeStatus
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function completeAction(Request $request, $notebookSlug, $id, $completeStatus)
+    {
+        $modelNotebook = $this->getModelNotebook();
+        $userId = $this->getUser()->getId();
+    
+        $notebook = $modelNotebook->getBySlugAndUser($notebookSlug, $userId);
+    
+        if(! $this->get('security.context')->isGranted('notebook.view', $notebook)) {
+            throw $this->createAccessDeniedException();
+        }
+    
+        $model = $this->getModelNote();
+    
+        $entity = $model->findOneById($id);
+    
+        if(null === $entity) {
+            throw $this->createNotFoundException();
+        }
+    
+        if(! $this->get('security.context')->isGranted('note.update', $entity)) {
+            throw $this->createAccessDeniedException();
+        }
+        
+        if(true === $completeStatus) {
+            $entity->setCompleteDate(new \DateTime());
+        }
+        else {
+            $entity->setCompleteDate(null);
+        }
+        
+        $model->save($entity);
+        
+        $url = $request->headers->get('referer');
+        if(null === $url) {
+            $url = $this->generateUrl('app_module_notebook.ui.note.view', [
+                'notebookSlug' => $entity->getNotebook()->getSlug(),
+                'id' => $entity->getId(),
+            ]);
+        }
+        
+        return $this->redirect($url);
+    }
+    
 
     /**
      * @return \App\ModuleNotebook\Bundle\ModuleNotebookBundle\Model\NoteModel

@@ -13,7 +13,7 @@
 		<tr>
 			<th>{{ knp_pagination_sortable(itemsPagination, 'Subject', 'item.subject') }}</th>
 			<th>{{ knp_pagination_sortable(itemsPagination, 'Created at', 'item.creationDate') }}</th>
-			<th>{{ knp_pagination_sortable(itemsPagination, 'Completed at', 'item.completedDate') }}</th>
+			<th>{{ knp_pagination_sortable(itemsPagination, 'Completed at', 'item.completeDate') }}</th>
 			<th>{{ knp_pagination_sortable(itemsPagination, 'Due date', 'item.dueDate') }}</th>
 			<th>Actions</th>
 		</th>
@@ -35,8 +35,14 @@
 			</td>
 			<td>
 {% if item.completeDate is not null %}
+{% if is_granted('note.update', item) %}
+				<a href="{{ url('app_module_notebook.ui.note.markIncomplete', { notebookSlug: notebook.slug, id: item.id }) }}"><span class="glyphicon glyphicon-check"></span></a>
+{% endif %}
 				<time datetime="{{ item.completeDate | date('Y-m-d H:i:s') }}" class="fromnow">{{ item.completeDate | date('Y-m-d H:i:s') }}</time>
 {% else %}
+{% if is_granted('note.update', item) %}
+				<a href="{{ url('app_module_notebook.ui.note.markComplete', { notebookSlug: notebook.slug, id: item.id }) }}"><span class="glyphicon glyphicon-unchecked"></span></a>
+{% endif %}
 				Not completed yet
 {% endif %}
 			</td>

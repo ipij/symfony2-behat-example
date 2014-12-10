@@ -28,6 +28,15 @@ class NoteModel extends BaseDoctrineEntityModel
             $q->andWhere($q->expr()
                 ->in('item.notebook', $params['notebook']));
         }
+
+        if (isset($params['sort']) && $params['sort']) {
+            if (isset($params['order']) && $params['order']) {
+                $q->orderBy($params['sort'], $params['order']);
+            }
+            else {
+                $q->orderBy($params['sort']);
+            }
+        }
         
         if (isset($params['returnQuery']) && $params['returnQuery']) {
             return $q->getQuery();

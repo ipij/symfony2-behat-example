@@ -39,3 +39,11 @@ app_module_notebook.ui.note.delete:
 app_module_notebook.ui.note.view:
     path:     /{notebookSlug}/{id}
     defaults: { _controller: AppModuleNotebookModuleNotebookUiBundle:Note:view }
+
+app_module_notebook.ui.note.markComplete:
+    path:     /{notebookSlug}/{id}/complete
+    defaults: { _controller: AppModuleNotebookModuleNotebookUiBundle:Note:complete, completeStatus: true }
+
+app_module_notebook.ui.note.markIncomplete:
+    path:     /{notebookSlug}/{id}/incomplete
+    defaults: { _controller: AppModuleNotebookModuleNotebookUiBundle:Note:complete, completeStatus: false }

@@ -39,7 +39,10 @@ class NotebookController extends Controller
         /* @var $paginator \Knp\Component\Pager\PaginatorInterface */
         $paginator = $this->container->get('knp_paginator');
         /* @var $pagination \Knp\Component\Pager\Pagination\AbstractPagination */
-        $pagination = $paginator->paginate($model->getList($paramsListing), $page, $pageLimit);
+        $pagination = $paginator->paginate($model->getList($paramsListing), $page, $pageLimit, [
+            'defaultSortFieldName' => 'item.name',
+            'defaultSortDirection' => 'asc',
+        ]);
         
         $view['itemsPagination'] = $pagination;
         $view['items'] = $pagination->getItems();

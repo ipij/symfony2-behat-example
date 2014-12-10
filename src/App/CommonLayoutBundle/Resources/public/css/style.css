@@ -1,3 +1,10 @@
+/*.table thead th .asc::after {
+	content: " <span class='glyphicon glyphicon-chevron-up'></span>"
+}
+.table thead th .desc::after {
+	content: " <span class='glyphicon glyphicon-chevron-down'></span>"
+}*/
+
 .form-signin {
 	width: 330px;
 	margin: auto;
