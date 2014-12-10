@@ -6,5 +6,11 @@ services:
     
     app_module_notebook.ui.form.type.note:
         class: App\ModuleNotebook\Bundle\ModuleNotebookUiBundle\Form\Type\NoteFormType
+        arguments: [ @app_module_notebook.ui.form.dataTransformer.note ]
         tags:
             - { name: form.type, alias: note }
+
+# Data transformers
+    app_module_notebook.ui.form.dataTransformer.note:
+        class: App\ModuleNotebook\Bundle\ModuleNotebookUiBundle\Form\DataTransformer\NoteTagsDataTransformer
+        arguments: [ @app_module_notebook.model.noteTag ]

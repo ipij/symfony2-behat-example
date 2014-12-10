@@ -6,10 +6,19 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 use Symfony\Component\Validator\Constraints as Assert;
+use App\ModuleNotebook\Bundle\ModuleNotebookUiBundle\Form\DataTransformer\NoteTagsDataTransformer;
 
 class NoteFormType extends AbstractType
 {
-
+    /**
+     * @var \App\ModuleNotebook\Bundle\ModuleNotebookUiBundle\Form\DataTransformer\NoteTagsDataTransformer 
+     */
+    protected $noteTagsDataTransformer;
+    
+    public function __construct(NoteTagsDataTransformer $noteTagsDataTransformer) {
+        $this->noteTagsDataTransformer = $noteTagsDataTransformer;
+    }
+    
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('subject', 'text', [
@@ -33,13 +42,14 @@ class NoteFormType extends AbstractType
             'constraints' => [
             ],
         ]);
-        
-//         $builder->add('tags', 'text', [
-//             'label' => 'Tags',
-//             'constraints' => [
-//                 new Assert\NotBlank(),
-//             ],
-//         ]);
+
+        $builder->add('tags', 'text', [
+            'label' => 'Tags',
+            'attr' => [
+                'placeholder' => 'type tags here',
+            ],
+        ]);
+        $builder->get('tags')->addModelTransformer($this->noteTagsDataTransformer);
         
         $builder->add('submit', 'submit', [
             'label' => 'Submit',

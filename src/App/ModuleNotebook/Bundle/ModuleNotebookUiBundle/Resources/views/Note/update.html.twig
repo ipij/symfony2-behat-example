@@ -5,3 +5,16 @@
 {{ include('AppModuleNotebookModuleNotebookUiBundle:Note:form.html.twig') }}
 
 {% endblock %}
+
+{% block content_javascripts %}
+{{ parent() }}
+<script>
+$(function() {
+	$('[name="note[tags]"]').select2({
+		tags: [],
+		tokenSeparators: [",", " "]
+	})
+})
+</script>
+
+{% endblock %}

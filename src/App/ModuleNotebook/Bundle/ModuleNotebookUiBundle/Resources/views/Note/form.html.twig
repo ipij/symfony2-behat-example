@@ -8,6 +8,9 @@
 	<div class="row">
 		{{ form_row(form.dueDate, { attr: { class: 'datepicker datepicker-date' } }) }}
 	</div>
+	<div class="row">
+		{{ form_row(form.tags) }}
+	</div>
 	
 	{{ form_rest(form) }}
 {{ form_end(form) }}

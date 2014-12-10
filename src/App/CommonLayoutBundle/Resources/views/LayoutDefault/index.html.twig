@@ -17,6 +17,8 @@
     'bundles/appcommonlayout/css/bootstrap-override.css'
     
     'bundles/appcommonlayout/lib/eternicode-bootstrap-datepicker/1.3.0/css/datepicker3.css'
+    'bundles/appcommonlayout/lib/select2/3.5.2/select2.css'
+    'bundles/appcommonlayout/lib/select2-bootstrap/1.4.2/select2-bootstrap.css'
     
     'bundles/appcommonlayout/css/style.css'
     
@@ -103,11 +105,17 @@
       '@AppCommonLayoutBundle/Resources/public/lib/bootstrap-3.3.1-dist/dist/js/bootstrap.min.js'
       '@AppCommonLayoutBundle/Resources/public/lib/eternicode-bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js'
       '@AppCommonLayoutBundle/Resources/public/lib/momentjs/2.8.4/moment-with-locales.js'
+      '@AppCommonLayoutBundle/Resources/public/lib/select2/3.5.2/select2.min.js'
       
       '@AppCommonLayoutBundle/Resources/public/js/common.js'
 	    %}
 	    <script src="{{ asset_url }}"></script>
 	{% endjavascripts %}
 {% endblock %}
+
+
+{% block content_javascripts %}
+{% endblock %}
+
   </body>
 </html>
