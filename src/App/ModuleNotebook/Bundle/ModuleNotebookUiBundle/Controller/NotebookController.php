@@ -76,7 +76,7 @@ class NotebookController extends Controller
             
             $this->get('session')->getFlashBag()->add(
                 'notice',
-                MessageFactory::createMessage('The notebook has added successfully.')
+                MessageFactory::createMessage('The notebook has been added successfully.')
             );
             
             return $this->redirect($this->generateUrl('app_module_notebook.ui.notebook.view', [
@@ -124,7 +124,7 @@ class NotebookController extends Controller
     
             $this->get('session')->getFlashBag()->add(
                 'notice',
-                MessageFactory::createMessage('The notebook has added successfully.')
+                MessageFactory::createMessage('The notebook has been updated successfully.')
             );
     
             return $this->redirect($this->generateUrl('app_module_notebook.ui.notebook.view', [
@@ -135,7 +135,7 @@ class NotebookController extends Controller
         $view['item'] = $entity;
         $view['form'] = $form->createView();
     
-        return $this->render('AppModuleNotebookModuleNotebookUiBundle:Notebook:create.html.twig', $view);
+        return $this->render('AppModuleNotebookModuleNotebookUiBundle:Notebook:update.html.twig', $view);
     }
     
     /**

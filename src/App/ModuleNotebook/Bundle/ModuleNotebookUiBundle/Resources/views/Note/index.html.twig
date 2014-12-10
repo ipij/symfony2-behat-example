@@ -1,0 +1,85 @@
+{% extends "AppCommonLayoutBundle:LayoutDefault:index.html.twig" %}
+
+{% block content %}
+
+<div class="tableActions">
+{% if is_granted('note.create') %}
+	<a href="{{ url('app_module_notebook.ui.note.create', { notebookSlug: notebook.slug }) }}" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Create note</a>
+{% endif %}
+</div>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>{{ knp_pagination_sortable(itemsPagination, 'Subject', 'item.subject') }}</th>
+			<th>{{ knp_pagination_sortable(itemsPagination, 'Created at', 'item.creationDate') }}</th>
+			<th>{{ knp_pagination_sortable(itemsPagination, 'Completed at', 'item.completedDate') }}</th>
+			<th>{{ knp_pagination_sortable(itemsPagination, 'Due date', 'item.dueDate') }}</th>
+			<th>Actions</th>
+		</th>
+	</thead>
+	<tbody>
+{% for item in items %}
+		<tr>
+			<td>
+{% if is_granted('note.view', item) %}
+				<a href="{{ url('app_module_notebook.ui.note.view', { notebookSlug: notebook.slug, id: item.id }) }}">
+				{{ item.subject }}
+				</a>
+{% else %}
+				{{ item.subject }}
+{% endif %}
+			</td>
+			<td>
+				{{ item.creationDate | date('Y-m-d H:i:s') }}
+			</td>
+			<td>
+{% if item.completeDate is not null %}
+				{{ item.completeDate | date('Y-m-d H:i:s') }}
+{% else %}
+				Not completed yet
+{% endif %}
+			</td>
+			<td>
+{% if item.completeDate is not null %}
+				{{ item.dueDate | date('Y-m-d H:i:s') }}
+{% else %}
+				No due time
+{% endif %}
+			</td>
+			<td>
+{% if is_granted('note.view', item) %}
+				<a href="{{ url('app_module_notebook.ui.note.view', { notebookSlug: notebook.slug, id: item.id }) }}"><span class="glyphicon glyphicon-list-alt"></span></a>
+{% endif %}
+{% if is_granted('note.update', item) %}
+				<a href="{{ url('app_module_notebook.ui.note.update', { notebookSlug: notebook.slug, id: item.id }) }}"><span class="glyphicon glyphicon-pencil"></span></a>
+{% endif %}
+{% if is_granted('note.delete', item) %}
+				<a href="{{ url('app_module_notebook.ui.note.delete', { notebookSlug: notebook.slug, id: item.id }) }}"><span class="glyphicon glyphicon-trash"></span></a>
+{% endif %}
+			</td>
+		</tr>
+		<tr>
+			<td colspan="5">
+				{{ item.contents }}
+			</td>
+		</tr>
+{% else %}
+		<tr>
+			<td colspan="2">
+				There is no notes in this notebook.
+				
+{% if is_granted('note.create') %}
+				<a href="{{ url('app_module_notebook.ui.note.create', { notebookSlug: notebook.slug }) }}" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Create first one!</a>
+{% endif %}
+			</td>
+		</tr>
+{% endfor %}
+	</tbody>
+</table>
+
+<div class="navigation">
+	{{ knp_pagination_render(itemsPagination) }}
+</div>
+
+{% endblock %}

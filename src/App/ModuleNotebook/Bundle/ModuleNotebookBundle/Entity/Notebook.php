@@ -31,6 +31,14 @@ class Notebook
      * @var \App\ModuleUser\Bundle\ModuleUserBundle\Entity
      */
     protected $owner;
+
+    /**
+     * @return the $id
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
     
 	/**
      * @return the $name

@@ -1,0 +1,13 @@
+{{ form_start(form, { attr: { novalidate: 'novalidate' } }) }}
+	<div class="row">
+		{{ form_row(form.subject) }}
+	</div>
+	<div class="row">
+		{{ form_row(form.contents) }}
+	</div>
+	<div class="row">
+		{{ form_row(form.dueDate) }}
+	</div>
+	
+	{{ form_rest(form) }}
+{{ form_end(form) }}

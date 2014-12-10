@@ -63,6 +63,14 @@ class Note
     }
     
     /**
+     * @return the $id
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+	/**
      * @return the $notebook
      */
     public function getNotebook()

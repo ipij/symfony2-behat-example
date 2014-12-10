@@ -1,10 +1,9 @@
+#
+# Notebook
+#
 app_module_notebook.ui.notebook.list:
     path:     /
     defaults: { _controller: AppModuleNotebookModuleNotebookUiBundle:Notebook:index }
-
-app_module_notebook.ui.notebook.view:
-    path:     /{slug}/view
-    defaults: { _controller: AppModuleNotebookModuleNotebookUiBundle:Notebook:view }
 
 app_module_notebook.ui.notebook.create:
     path:     /create
@@ -17,3 +16,26 @@ app_module_notebook.ui.notebook.update:
 app_module_notebook.ui.notebook.delete:
     path:     /{slug}/delete
     defaults: { _controller: AppModuleNotebookModuleNotebookUiBundle:Notebook:delete }
+
+app_module_notebook.ui.notebook.view:
+    path:     /{slug}
+    defaults: { _controller: AppModuleNotebookModuleNotebookUiBundle:Note:index }
+
+#
+# Note
+#
+app_module_notebook.ui.note.create:
+    path:     /{notebookSlug}/create
+    defaults: { _controller: AppModuleNotebookModuleNotebookUiBundle:Note:create }
+
+app_module_notebook.ui.note.update:
+    path:     /{notebookSlug}/{id}/edit
+    defaults: { _controller: AppModuleNotebookModuleNotebookUiBundle:Note:update }
+
+app_module_notebook.ui.note.delete:
+    path:     /{notebookSlug}/{id}/delete
+    defaults: { _controller: AppModuleNotebookModuleNotebookUiBundle:Note:delete }
+
+app_module_notebook.ui.note.view:
+    path:     /{notebookSlug}/{id}
+    defaults: { _controller: AppModuleNotebookModuleNotebookUiBundle:Note:view }

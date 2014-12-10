@@ -3,3 +3,8 @@ services:
         class: App\ModuleNotebook\Bundle\ModuleNotebookUiBundle\Form\Type\NotebookFormType
         tags:
             - { name: form.type, alias: notebook }
+    
+    app_module_notebook.ui.form.type.note:
+        class: App\ModuleNotebook\Bundle\ModuleNotebookUiBundle\Form\Type\NoteFormType
+        tags:
+            - { name: form.type, alias: note }

@@ -25,6 +25,14 @@ class NoteTag
      * @var string
      */
     protected $slug;
+
+    /**
+     * @return the $id
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
     
 	/**
      * @return the $name
