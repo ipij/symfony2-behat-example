@@ -47,10 +47,26 @@ where _tag_name_ is your `@tag_name` tagged features.
 * You can find **possible sentences** defined in Contexts:
 
   - [/src/AppBundle/Behat/Context/WebContext.php](src/AppBundle/Behat/Context/WebContext.php)
+  - [/src/App/ModuleUser/Bundle/ModuleUserBundle/Behat/Context/AuthenticationContext.php)
   - [https://github.com/Behat/MinkExtension/blob/master/src/Behat/MinkExtension/Context/MinkContext.php](https://github.com/Behat/MinkExtension/blob/master/src/Behat/MinkExtension/Context/MinkContext.php)
 
 * You can find **fixtres (initial data)** under:
 
   - [/src/App/ModuleNotebook/Bundle/ModuleNotebookBundle/DataFixtures/ORM](src/App/ModuleNotebook/Bundle/ModuleNotebookBundle/DataFixtures/ORM)
   - [/src/App/ModuleUser/Bundle/ModuleUserBundle/DataFixtures/ORM](src/App/ModuleUser/Bundle/ModuleUserBundle/DataFixtures/ORM)
+
+### Acceptance tests
+
+You should check these aspects:
+
+* User interface:
+  * Current page URL's and redirection URL's
+  * Listing contents after CRUD operation
+  * Response codes while testing security
+  * Invalid values while submitting forms (CRUD)
+
+* API:
+  * Response codes
+  * Response contents
+  * Invalid values while CRUD
   
