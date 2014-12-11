@@ -19,3 +19,9 @@ Feature: Homepage
 #              and be redirect back to notebook list
 #              and notebook should still exists.
 #
+
+#    Scenario: User cannot delete non-existing notebook giving prepared URL
+#
+
+#    Scenario: User cannot delete other's notebook giving prepared URL
+#

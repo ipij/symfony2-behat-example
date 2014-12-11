@@ -22,3 +22,9 @@ Feature: Homepage
 
 #    Scenario: Notebook update form should fail when leave notebook name empty
 #
+
+#    Scenario: User cannot update non-existing notebook giving prepared URL
+#
+
+#    Scenario: User cannot delete other's notebook giving prepared URL
+#

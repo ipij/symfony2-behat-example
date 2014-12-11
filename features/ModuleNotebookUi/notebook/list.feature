@@ -15,7 +15,7 @@ Feature: Homepage
           And I go to "/notebooks/"
          Then I should be redirected to "/login"
 	
-    Scenario: User should see own notebooks on the list
+    Scenario: User should not see other's notebooks on the list
         Given I am authenticated as "Katie"
           And I go to "/notebooks/"
          Then I should see "Todo list"
