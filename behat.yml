@@ -7,20 +7,25 @@ default:
     
     suites:
         landingpage:
+            paths:    [ %paths.base%/features/landingpage ]
             contexts:
                 - Behat\MinkExtension\Context\MinkContext
                 - AppBundle\Behat\Context\WebContext
                 - App\ModuleUser\Bundle\ModuleUserBundle\Behat\Context\AuthenticationContext
-        authorization.login:
+        authorization:
+            paths:    [ %paths.base%/features/authorization ]
             contexts:
                 - Behat\MinkExtension\Context\MinkContext
                 - AppBundle\Behat\Context\WebContext
                 - AppBundle\Behat\Context\DoctrineFixturesContext
                 - App\ModuleUser\Bundle\ModuleUserBundle\Behat\Context\AuthenticationContext
-#        notes_ui:
-#            contexts:
-#                - Behat\MinkExtension\Context\MinkContext
-#                - AppNotes\Bundle\NotesUiBundle\Behat\NotesContext
+        notebook:
+            paths:    [ %paths.base%/features/notebook ]
+            contexts:
+                - Behat\MinkExtension\Context\MinkContext
+                - AppBundle\Behat\Context\WebContext
+                - AppBundle\Behat\Context\DoctrineFixturesContext
+                - App\ModuleUser\Bundle\ModuleUserBundle\Behat\Context\AuthenticationContext
     
     extensions:
         Behat\MinkExtension:

@@ -20,7 +20,7 @@
 		<tr>
 			<td>
 {% if is_granted('notebook.view', item) %}
-				<a href="{{ url('app_module_notebook.ui.notebook.view', { slug: item.slug }) }}">
+				<a href="{{ url('app_module_notebook.ui.notebook.view', { slug: item.slug }) }}" title="View {{ item.name }}">
 				{{ item.name }}
 				</a>
 {% else %}
@@ -29,13 +29,13 @@
 			</td>
 			<td>
 {% if is_granted('notebook.view', item) %}
-				<a href="{{ url('app_module_notebook.ui.notebook.view', { slug: item.slug }) }}"><span class="glyphicon glyphicon-list-alt"></span></a>
+				<a href="{{ url('app_module_notebook.ui.notebook.view', { slug: item.slug }) }}" title="View {{ item.name }}"><span class="glyphicon glyphicon-list-alt"></span></a>
 {% endif %}
 {% if is_granted('notebook.update', item) %}
-				<a href="{{ url('app_module_notebook.ui.notebook.update', { slug: item.slug }) }}"><span class="glyphicon glyphicon-pencil"></span></a>
+				<a href="{{ url('app_module_notebook.ui.notebook.update', { slug: item.slug }) }}" title="Edit {{ item.name }}"><span class="glyphicon glyphicon-pencil"></span></a>
 {% endif %}
 {% if is_granted('notebook.delete', item) %}
-				<a href="{{ url('app_module_notebook.ui.notebook.delete', { slug: item.slug }) }}"><span class="glyphicon glyphicon-trash"></span></a>
+				<a href="{{ url('app_module_notebook.ui.notebook.delete', { slug: item.slug }) }}" title="Delete {{ item.name }}"><span class="glyphicon glyphicon-trash"></span></a>
 {% endif %}
 			</td>
 		</tr>

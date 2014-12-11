@@ -52,6 +52,14 @@ class WebContext extends DefaultContext
     }
 
     /**
+     * @When /^Print page content$/
+     */
+    public function printPageContent()
+    {
+        echo $this->getSession()->getPage()->getContent();
+    }
+    
+    /**
      * @Then /^(?:|I )should see "([^"]+)" (heading|headline)$/
      */
     public function iShouldSeeHeading($heading)
@@ -72,6 +80,6 @@ class WebContext extends DefaultContext
         ];
         $class = $classesMap[$type];
         
-        $this->assertSession()->elementTextContains('xpath', '//div[@role="alert"][@class="alert alert-' . $class . '"]', $this->fixStepArgument($message));
+        $this->assertSession()->elementTextContains('xpath', '//div[@class="alert alert-' . $class . '"]', $this->fixStepArgument($message));
     }
 }

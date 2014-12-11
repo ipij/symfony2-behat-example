@@ -23,7 +23,7 @@
 		<tr>
 			<td>
 {% if is_granted('note.view', item) %}
-				<a href="{{ url('app_module_notebook.ui.note.view', { notebookSlug: notebook.slug, id: item.id }) }}">
+				<a href="{{ url('app_module_notebook.ui.note.view', { notebookSlug: notebook.slug, id: item.id }) }}" title="View {{ item.subject }}">
 				{{ item.subject }}
 				</a>
 {% else %}
@@ -36,12 +36,12 @@
 			<td>
 {% if item.completeDate is not null %}
 {% if is_granted('note.update', item) %}
-				<a href="{{ url('app_module_notebook.ui.note.markIncomplete', { notebookSlug: notebook.slug, id: item.id }) }}"><span class="glyphicon glyphicon-check"></span></a>
+				<a href="{{ url('app_module_notebook.ui.note.markIncomplete', { notebookSlug: notebook.slug, id: item.id }) }}" title="Incomplete {{ item.subject }}"><span class="glyphicon glyphicon-check"></span></a>
 {% endif %}
 				<time datetime="{{ item.completeDate | date('Y-m-d H:i:s') }}" class="fromnow">{{ item.completeDate | date('Y-m-d H:i:s') }}</time>
 {% else %}
 {% if is_granted('note.update', item) %}
-				<a href="{{ url('app_module_notebook.ui.note.markComplete', { notebookSlug: notebook.slug, id: item.id }) }}"><span class="glyphicon glyphicon-unchecked"></span></a>
+				<a href="{{ url('app_module_notebook.ui.note.markComplete', { notebookSlug: notebook.slug, id: item.id }) }}" title="Complete {{ item.subject }}"><span class="glyphicon glyphicon-unchecked"></span></a>
 {% endif %}
 				Not completed yet
 {% endif %}
@@ -55,13 +55,13 @@
 			</td>
 			<td>
 {% if is_granted('note.view', item) %}
-				<a href="{{ url('app_module_notebook.ui.note.view', { notebookSlug: notebook.slug, id: item.id }) }}"><span class="glyphicon glyphicon-list-alt"></span></a>
+				<a href="{{ url('app_module_notebook.ui.note.view', { notebookSlug: notebook.slug, id: item.id }) }}" title="View {{ item.subject }}"><span class="glyphicon glyphicon-list-alt"></span></a>
 {% endif %}
 {% if is_granted('note.update', item) %}
-				<a href="{{ url('app_module_notebook.ui.note.update', { notebookSlug: notebook.slug, id: item.id }) }}"><span class="glyphicon glyphicon-pencil"></span></a>
+				<a href="{{ url('app_module_notebook.ui.note.update', { notebookSlug: notebook.slug, id: item.id }) }}" title="Edit {{ item.subject }}"><span class="glyphicon glyphicon-pencil"></span></a>
 {% endif %}
 {% if is_granted('note.delete', item) %}
-				<a href="{{ url('app_module_notebook.ui.note.delete', { notebookSlug: notebook.slug, id: item.id }) }}"><span class="glyphicon glyphicon-trash"></span></a>
+				<a href="{{ url('app_module_notebook.ui.note.delete', { notebookSlug: notebook.slug, id: item.id }) }}" title="Delete {{ item.subject }}"><span class="glyphicon glyphicon-trash"></span></a>
 {% endif %}
 			</td>
 		</tr>

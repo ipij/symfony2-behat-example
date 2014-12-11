@@ -123,13 +123,21 @@ abstract class DefaultContext extends RawMinkContext implements Context, KernelA
     {
         $this->getSession()->getPage()->clickLink($this->fixStepArgument($link));
     }
-    
+
     /**
      * Fills in form field with specified id|name|label|value.
      */
     protected function fillField($field, $value)
     {
         $this->getSession()->getPage()->fillField($this->fixStepArgument($field), $this->fixStepArgument($value));
+    }
+
+    /**
+     * Checks checkbox with specified id|name|label|value.
+     */
+    protected function checkField($field)
+    {
+        $this->getSession()->getPage()->checkField($this->fixStepArgument($field));
     }
     
     /**

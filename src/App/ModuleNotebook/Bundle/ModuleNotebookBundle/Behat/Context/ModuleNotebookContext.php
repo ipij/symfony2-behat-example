@@ -1,6 +1,6 @@
 <?php
 
-namespace App\ModuleUser\Bundle\ModuleUserBundle\Behat\Context;
+namespace App\ModuleNotebook\Bundle\ModuleNotebookBundle\Behat\Context;
 
 use Behat\Gherkin\Node\TableNode;
 
@@ -11,13 +11,13 @@ use AppBundle\Behat\Context\DefaultContext;
  * @author Athlan
  *
  */
-class AuthenticationContext extends DefaultContext
+class ModuleNotebookContext extends DefaultContext
 {
     private $users = array();
     
     /**
      * @Given /^there are following users:$/
-    */
+     */
     public function thereAreFollowingUsers(TableNode $table) {
         foreach ($table->getHash() as $row) {
             $this->users[$row['username']] = $row;
@@ -35,7 +35,6 @@ class AuthenticationContext extends DefaultContext
         $this->visitPath('/login');
         $this->fillField('_username', $username);
         $this->fillField('_password', $this->users[$username]['password']);
-        $this->checkField('remember_me');
         $this->pressButton('_submit');
     }
     

@@ -25,6 +25,9 @@ class NoteController extends Controller
         
         $notebook = $modelNotebook->getBySlugAndUser($slug, $userId);
         
+        if(null === $notebook) {
+            throw $this->createNotFoundException();
+        }
         if(! $this->get('security.context')->isGranted('notebook.view', $notebook)) {
             throw $this->createAccessDeniedException();
         }
@@ -50,8 +53,8 @@ class NoteController extends Controller
         
         /* @var $pagination \Knp\Component\Pager\Pagination\AbstractPagination */
         $pagination = $paginator->paginate($model->getList($paramsListing), $page, $pageLimit, [
-            'defaultSortFieldName' => 'item.dueDate',
-            'defaultSortDirection' => 'asc',
+//             'defaultSortFieldName' => 'item.dueDate',
+//             'defaultSortDirection' => 'asc',
         ]);
         
         $view['itemsPagination'] = $pagination;
@@ -74,7 +77,10 @@ class NoteController extends Controller
         $userId = $this->getUser()->getId();
         
         $notebook = $modelNotebook->getBySlugAndUser($notebookSlug, $userId);
-        
+
+        if(null === $notebook) {
+            throw $this->createNotFoundException();
+        }
         if(! $this->get('security.context')->isGranted('notebook.view', $notebook)) {
             throw $this->createAccessDeniedException();
         }
@@ -126,7 +132,10 @@ class NoteController extends Controller
         $userId = $this->getUser()->getId();
         
         $notebook = $modelNotebook->getBySlugAndUser($notebookSlug, $userId);
-        
+
+        if(null === $notebook) {
+            throw $this->createNotFoundException();
+        }
         if(! $this->get('security.context')->isGranted('notebook.view', $notebook)) {
             throw $this->createAccessDeniedException();
         }
@@ -164,7 +173,10 @@ class NoteController extends Controller
         $userId = $this->getUser()->getId();
         
         $notebook = $modelNotebook->getBySlugAndUser($notebookSlug, $userId);
-        
+
+        if(null === $notebook) {
+            throw $this->createNotFoundException();
+        }
         if(! $this->get('security.context')->isGranted('notebook.view', $notebook)) {
             throw $this->createAccessDeniedException();
         }
@@ -219,7 +231,10 @@ class NoteController extends Controller
         $userId = $this->getUser()->getId();
         
         $notebook = $modelNotebook->getBySlugAndUser($notebookSlug, $userId);
-        
+
+        if(null === $notebook) {
+            throw $this->createNotFoundException();
+        }
         if(! $this->get('security.context')->isGranted('notebook.view', $notebook)) {
             throw $this->createAccessDeniedException();
         }
@@ -278,7 +293,10 @@ class NoteController extends Controller
         $userId = $this->getUser()->getId();
     
         $notebook = $modelNotebook->getBySlugAndUser($notebookSlug, $userId);
-    
+
+        if(null === $notebook) {
+            throw $this->createNotFoundException();
+        }
         if(! $this->get('security.context')->isGranted('notebook.view', $notebook)) {
             throw $this->createAccessDeniedException();
         }
