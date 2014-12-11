@@ -54,43 +54,34 @@ class LoadNotes extends AbstractFixture implements
         $entity = new Note();
         $entity->setNotebook($this->getReference(sprintf('notebook:%s:%s', 'Katie', 'Todo list')));
         $entity->setSubject('Close window at home');
-//         $entity->getTags()->add($this->getReference(sprintf('noteTag:%s', 'home')));
         $entity->getTags()->add($modelTag->createOrGetTag('At home'));
         $model->save($entity);
         
         $entity = new Note();
         $entity->setNotebook($this->getReference(sprintf('notebook:%s:%s', 'Greg', 'Shopping list')));
         $entity->setSubject('Food for cat');
-//         $entity->getTags()->add($this->getReference(sprintf('noteTag:%s', 'kitty')));
         $entity->getTags()->add($modelTag->createOrGetTag('Kitty'));
-//         $entity->getTags()->add($this->getReference(sprintf('noteTag:%s', 'food')));
         $entity->getTags()->add($modelTag->createOrGetTag('Food'));
         $model->save($entity);
 
         $entity = new Note();
         $entity->setNotebook($this->getReference(sprintf('notebook:%s:%s', 'Greg', 'Shopping list')));
         $entity->setSubject('Food for cat');
-//         $entity->getTags()->add($this->getReference(sprintf('noteTag:%s', 'doggy')));
         $entity->getTags()->add($modelTag->createOrGetTag('Doggy'));
-//         $entity->getTags()->add($this->getReference(sprintf('noteTag:%s', 'food')));
         $entity->getTags()->add($modelTag->createOrGetTag('Food'));
         $model->save($entity);
 
         $entity = new Note();
         $entity->setNotebook($this->getReference(sprintf('notebook:%s:%s', 'Greg', 'Shopping list')));
         $entity->setSubject('Cheese');
-//         $entity->getTags()->add($this->getReference(sprintf('noteTag:%s', 'food')));
         $entity->getTags()->add($modelTag->createOrGetTag('Food'));
-//         $entity->getTags()->add($this->getReference(sprintf('noteTag:%s', 'home')));
         $entity->getTags()->add($modelTag->createOrGetTag('At home'));
         $model->save($entity);
 
         $entity = new Note();
         $entity->setNotebook($this->getReference(sprintf('notebook:%s:%s', 'Greg', 'Todo list')));
         $entity->setSubject('Write corporate scenarios at home');
-//         $entity->getTags()->add($this->getReference(sprintf('noteTag:%s', 'work')));
         $entity->getTags()->add($modelTag->createOrGetTag('Food'));
-//         $entity->getTags()->add($this->getReference(sprintf('noteTag:%s', 'home')));
         $entity->getTags()->add($modelTag->createOrGetTag('At home'));
         $model->save($entity);
         

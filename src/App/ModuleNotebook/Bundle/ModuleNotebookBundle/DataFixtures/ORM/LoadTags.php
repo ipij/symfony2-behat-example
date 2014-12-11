@@ -11,6 +11,11 @@ use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 
 use App\ModuleNotebook\Bundle\ModuleNotebookBundle\Entity\NoteTag;
 
+/**
+ * 
+ * @deprecated in 0.1.1
+ *
+ */
 class LoadTags extends AbstractFixture implements 
     //DependentFixtureInterface,
     ContainerAwareInterface

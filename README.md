@@ -25,3 +25,32 @@ $ bin/behat --tags tag_name
 ```
 
 where _tag_name_ is your `@tag_name` tagged features.
+
+### Application
+
+* User interface: [http://localhost/html/symfony2-behat-example/app_dev.php/](http://localhost/html/symfony2-behat-example/app_dev.php/)
+* API interactive documentation: [http://localhost/html/symfony2-behat-example/app_dev.php/api/doc/](http://localhost/html/symfony2-behat-example/app_dev.php/api/doc/)
+* There are two users:
+  
+  Username      | Password      | Role
+  ------------- | ------------- | -------------
+  Greg          | a             | User
+  Katie         | a             | User
+
+### File locations
+
+* You can find **Behat configuration** under:
+
+  - [/behat.yml](behat.yml) - Definitions of Features groupped by Suites. Each suite uses contexts.
+  - [/features](features/) - List of features written in Gearman in `*.feature` files
+
+* You can find **possible sentences** defined in Contexts:
+
+  - [/src/AppBundle/Behat/Context/WebContext.php](src/AppBundle/Behat/Context/WebContext.php)
+  - [https://github.com/Behat/MinkExtension/blob/master/src/Behat/MinkExtension/Context/MinkContext.php](https://github.com/Behat/MinkExtension/blob/master/src/Behat/MinkExtension/Context/MinkContext.php)
+
+* You can find **fixtres (initial data)** under:
+
+  - [/src/App/ModuleNotebook/Bundle/ModuleNotebookBundle/DataFixtures/ORM](src/App/ModuleNotebook/Bundle/ModuleNotebookBundle/DataFixtures/ORM)
+  - [/src/App/ModuleUser/Bundle/ModuleUserBundle/DataFixtures/ORM](src/App/ModuleUser/Bundle/ModuleUserBundle/DataFixtures/ORM)
+  
