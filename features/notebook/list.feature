@@ -10,6 +10,11 @@ Feature: Homepage
             | Greg     | a        |
             | Katie    | a        |
 	
+    Scenario: Anonymous user should not be able to view notebook list
+        Given I am anonymous user
+          And I go to "/notebooks/"
+         Then I should be redirected to "/login"
+	
     Scenario: User should see own notebooks on the list
         Given I am authenticated as "Katie"
           And I go to "/notebooks/"

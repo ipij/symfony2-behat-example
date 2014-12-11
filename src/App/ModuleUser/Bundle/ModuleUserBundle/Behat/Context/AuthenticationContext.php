@@ -41,6 +41,7 @@ class AuthenticationContext extends DefaultContext
     
     /**
      * @Given /^I am not logged in$/
+     * @Given /^I am (an )?anonymous user?$/
      */
     public function iAmNotLoggedIn()
     {

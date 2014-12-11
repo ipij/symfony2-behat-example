@@ -18,7 +18,7 @@ Feature: Homepage
           And I fill in "notebook_name" with "Shopping list edited"
           And I press "Submit"
          Then I should see success message "The notebook has been updated successfully"
-          And the url should match "/notebooks/(.+)"
+          And should be redirected to "/notebooks/(.+)"
 
 #    Scenario: Notebook update form should fail when leave notebook name empty
 #

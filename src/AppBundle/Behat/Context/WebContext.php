@@ -29,6 +29,16 @@ class WebContext extends DefaultContext
     }
     
     /**
+     * Checks, that current page PATH matches regular expression.
+     *
+     * @Then /^(?:|I )should be redirected to (?P<pattern>"(?:[^"]|\\")*")$/
+     */
+    public function iAmRedirectedToUrl($pattern)
+    {
+        $this->assertSession()->addressMatches($this->fixStepArgument($pattern));
+    }
+    
+    /**
      * @Then /^(?:|I )should be on the "([^"]+)" (page)$/
      * @Then /^(?:|I )should be redirected to the "([^"]+)" (page)$/
      * @Then /^(?:|I )should still be on the "([^"]+)" (page)$/
