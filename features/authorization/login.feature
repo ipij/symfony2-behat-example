@@ -3,7 +3,13 @@ Feature: Login form
     Anonymous users should have a possibility to log in properly.
     As a anonymous user
     I need to be able to log in propetly when I fill proper credential
-
+    
+    Background:
+        Given there are following users:
+            | username | password |
+            | Greg     | a        |
+            | Katie    | a        |
+	
     Scenario: See login form
         Given I go to the website root
           And I click "Login" link
@@ -30,3 +36,8 @@ Feature: Login form
           And I fill in "password" with "INVALID_PASSWORD"
           And I press "Login"
          Then I should see error message "Invalid credentials"
+
+    Scenario: I am already logged in and see my username
+        Given I am authenticated as "Greg"
+         Then I should see "Logged in as Greg"
+          And I should see "Logout"

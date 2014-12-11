@@ -6,14 +6,17 @@ default:
             snippets: false
     
     suites:
-        testsuite:
+        landingpage:
             contexts:
                 - Behat\MinkExtension\Context\MinkContext
                 - AppBundle\Behat\Context\WebContext
+                - App\ModuleUser\Bundle\ModuleUserBundle\Behat\Context\AuthenticationContext
         authorization.login:
             contexts:
                 - Behat\MinkExtension\Context\MinkContext
                 - AppBundle\Behat\Context\WebContext
+                - AppBundle\Behat\Context\DoctrineFixturesContext
+                - App\ModuleUser\Bundle\ModuleUserBundle\Behat\Context\AuthenticationContext
 #        notes_ui:
 #            contexts:
 #                - Behat\MinkExtension\Context\MinkContext
