@@ -20,7 +20,7 @@ default:
                 - AppBundle\Behat\Context\DoctrineFixturesContext
                 - App\ModuleUser\Bundle\ModuleUserBundle\Behat\Context\AuthenticationContext
         notebook:
-            paths:    [ %paths.base%/features/notebook ]
+            paths:    [ %paths.base%/features/ModuleNotebookUi ]
             contexts:
                 - Behat\MinkExtension\Context\MinkContext
                 - AppBundle\Behat\Context\WebContext
