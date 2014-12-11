@@ -13,4 +13,9 @@ $(function() {
 		o.text(text)
 		o.attr('title', o.attr('datetime'))
 	})
+	
+	$('.btn-cancel').on('click', function(e) {
+		e.preventDefault()
+		history.back(-1)
+	})
 })

@@ -11,11 +11,13 @@ Feature: Homepage
             | Katie    | a        |
 	
 #    Scenario: User should can delete notebook
+#              and see confirmation info mesage
 #              and be redirected to notebook list
 #              that does not contain deleted notebook.
 #
 
 #    Scenario: User should can cancel notebook deletion
+#              and see confirmation info mesage
 #              and be redirect back to notebook list
 #              and notebook should still exists.
 #

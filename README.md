@@ -55,6 +55,16 @@ where _tag_name_ is your `@tag_name` tagged features.
   - [/src/App/ModuleNotebook/Bundle/ModuleNotebookBundle/DataFixtures/ORM](src/App/ModuleNotebook/Bundle/ModuleNotebookBundle/DataFixtures/ORM)
   - [/src/App/ModuleUser/Bundle/ModuleUserBundle/DataFixtures/ORM](src/App/ModuleUser/Bundle/ModuleUserBundle/DataFixtures/ORM)
 
+* Sample features **fixtres (initial data)** under:
+
+  - [/features/landingpage/homepage.feature](features/landingpage/homepage.feature)
+  - [/features/authorization/login.feature](features/authorization/login.feature)
+  - [/features/ModuleNotebookUi/notebook/list.feature](features/ModuleNotebookUi/notebook/list.feature)
+  - [/features/ModuleNotebookUi/notebook/view.feature](features/ModuleNotebookUi/notebook/view.feature)
+  - [/features/ModuleNotebookUi/notebook/update.feature](features/ModuleNotebookUi/notebook/update.feature)
+
+/features/ModuleNotebookUi/note/update.tag.feature
+
 ### Acceptance tests
 
 You should check these aspects:

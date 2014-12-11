@@ -11,11 +11,13 @@ Feature: Homepage
             | Katie    | a        |
 	
 #    Scenario: User should can delete note
+#              and see confirmation info mesage
 #              and be redirected to note list
 #              that does not contain deleted note.
 #
 
 #    Scenario: User should can cancel note deletion
+#              and see confirmation info mesage
 #              and be redirect back to note list
 #              and note should still exists.
 #
