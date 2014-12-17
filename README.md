@@ -29,7 +29,7 @@ where _tag_name_ is your `@tag_name` tagged features.
 ### Application
 
 * User interface: [http://localhost/symfony2-behat-example/web/app_dev.php/](http://localhost/symfony2-behat-example/web/app_dev.php/)
-* API interactive documentation: [http://localhost/html/symfony2-behat-example/app_dev.php/api/doc/](http://localhost/html/symfony2-behat-example/app_dev.php/api/doc/)
+* API interactive documentation: [http://localhost/symfony2-behat-example/web/app_dev.php/api/doc/](http://localhost/symfony2-behat-example/web/app_dev.php/api/doc/)
 * There are two users:
   
   Username      | Password      | Role
@@ -47,7 +47,7 @@ where _tag_name_ is your `@tag_name` tagged features.
 * You can find **possible sentences** defined in Contexts:
 
   - [/src/AppBundle/Behat/Context/WebContext.php](src/AppBundle/Behat/Context/WebContext.php)
-  - [/src/App/ModuleUser/Bundle/ModuleUserBundle/Behat/Context/AuthenticationContext.php)
+  - [/src/App/ModuleUser/Bundle/ModuleUserBundle/Behat/Context/AuthenticationContext.php][/src/App/ModuleUser/Bundle/ModuleUserBundle/Behat/Context/AuthenticationContext.php)
   - [https://github.com/Behat/MinkExtension/blob/master/src/Behat/MinkExtension/Context/MinkContext.php](https://github.com/Behat/MinkExtension/blob/master/src/Behat/MinkExtension/Context/MinkContext.php)
 
 * You can find **fixtres (initial data)** under:
