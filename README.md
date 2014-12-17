@@ -28,7 +28,7 @@ where _tag_name_ is your `@tag_name` tagged features.
 
 ### Application
 
-* User interface: [http://localhost/html/symfony2-behat-example/app_dev.php/](http://localhost/html/symfony2-behat-example/app_dev.php/)
+* User interface: [http://localhost/symfony2-behat-example/web/app_dev.php/](http://localhost/symfony2-behat-example/web/app_dev.php/)
 * API interactive documentation: [http://localhost/html/symfony2-behat-example/app_dev.php/api/doc/](http://localhost/html/symfony2-behat-example/app_dev.php/api/doc/)
 * There are two users:
   
