@@ -47,7 +47,7 @@ where _tag_name_ is your `@tag_name` tagged features.
 * You can find **possible sentences** defined in Contexts:
 
   - [/src/AppBundle/Behat/Context/WebContext.php](src/AppBundle/Behat/Context/WebContext.php)
-  - [/src/App/ModuleUser/Bundle/ModuleUserBundle/Behat/Context/AuthenticationContext.php][/src/App/ModuleUser/Bundle/ModuleUserBundle/Behat/Context/AuthenticationContext.php)
+  - [/src/App/ModuleUser/Bundle/ModuleUserBundle/Behat/Context/AuthenticationContext.php](/src/App/ModuleUser/Bundle/ModuleUserBundle/Behat/Context/AuthenticationContext.php)
   - [https://github.com/Behat/MinkExtension/blob/master/src/Behat/MinkExtension/Context/MinkContext.php](https://github.com/Behat/MinkExtension/blob/master/src/Behat/MinkExtension/Context/MinkContext.php)
 
 * You can find **fixtres (initial data)** under:
@@ -79,3 +79,9 @@ You should check these aspects:
   * Response contents
   * Invalid values while CRUD
   
+### Virtualbox paths
+
+Application code is under:
+```
+cd /var/www/html/symfony2-behat-example
+```
