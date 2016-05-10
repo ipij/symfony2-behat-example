@@ -3,7 +3,11 @@
 parameters:
 #    parameter_name: value
 
+# Avoid error with fos_user bundle
 services:
+    fos_user.doctrine_registry:
+        alias: doctrine
+        
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
